@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_website_popin,website.popin,model_website_popin,base.group_user,1,1,1,1
+access_website_popin_public,website.popin public,model_website_popin,base.group_public,1,0,0,0
+access_website_popin_link,website.popin.link,model_website_popin_link,base.group_user,1,1,1,1
+access_website_popin_link_public,website.popin.link public,model_website_popin_link,base.group_public,1,0,0,0
+access_website_popin_page_stat,website.popin.page.stat,model_website_popin_page_stat,base.group_user,1,1,1,1
+access_website_popin_page_stat_public,website.popin.page.stat public,model_website_popin_page_stat,base.group_public,1,0,0,0

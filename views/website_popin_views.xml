@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_website_popin_link_tree" model="ir.ui.view">
+        <field name="name">website.popin.link.tree</field>
+        <field name="model">website.popin.link</field>
+        <field name="arch" type="xml">
+            <list string="Tracked Links" create="0" delete="0" edit="0">
+                <field name="name" string="Link Text"/>
+                <field name="url"/>
+                <field name="click_count"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_website_popin_page_stat_tree" model="ir.ui.view">
+        <field name="name">website.popin.page.stat.list</field>
+        <field name="model">website.popin.page.stat</field>
+        <field name="arch" type="xml">
+            <list string="Page Statistics" create="0" delete="0" edit="0">
+                <field name="page_url"/>
+                <field name="view_count"/>
+                <field name="click_count"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_website_popin_form" model="ir.ui.view">
+        <field name="name">website.popin.form</field>
+        <field name="model">website.popin</field>
+        <field name="arch" type="xml">
+            <form string="Website Popin">
+                <header>
+                    <field name="website_published" widget="website_redirect_button"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_analytics" type="object" class="oe_stat_button" icon="fa-bar-chart">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value"><field name="view_count"/></span>
+                                <span class="o_stat_text">Views</span>
+                            </div>
+                        </button>
+                        <button name="action_view_analytics" type="object" class="oe_stat_button" icon="fa-mouse-pointer">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value"><field name="click_count"/></span>
+                                <span class="o_stat_text">Clicks</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="e.g. Summer Promo"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="type"/>
+                            <field name="campaign_id"/>
+                            <field name="active" widget="boolean_toggle"/>
+                            <field name="website_ids" widget="many2many_tags"/>
+                        </group>
+                        <group>
+                            <field name="frequency"/>
+                            <field name="frequency_days" invisible="frequency != 'days'" required="frequency == 'days'"/>
+                            <field name="visitor_type"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Content" name="content">
+                            <field name="content" widget="code" options="{'mode': 'xml'}"/>
+                        </page>
+                        <page string="Targeting" name="targeting">
+                            <group string="Pages">
+                                <field name="page_ids" widget="many2many_tags"/>
+                                <field name="blog_post_ids" widget="many2many_tags"/>
+                            </group>
+                            <group string="URL Patterns">
+                                <field name="target_url_patterns" placeholder="/shop/*&#10;/contactus"/>
+                            </group>
+                        </page>
+                        <page string="Triggers" name="triggers">
+                            <group>
+                                <field name="trigger_type"/>
+                                <field name="trigger_delay" invisible="trigger_type != 'delay'" required="trigger_type == 'delay'"/>
+                                <field name="trigger_scroll" invisible="trigger_type != 'scroll'" required="trigger_type == 'scroll'"/>
+                                <field name="trigger_selector" invisible="trigger_type != 'click'" required="trigger_type == 'click'"/>
+                            </group>
+                        </page>
+                        <page string="Analytics" name="analytics">
+                            <group string="Links Performance">
+                                <field name="link_ids" readonly="1" context="{'tree_view_ref': 'website_popin.view_website_popin_link_tree'}"/>
+                            </group>
+                            <group string="Page Performance">
+                                <field name="page_stat_ids" readonly="1" context="{'tree_view_ref': 'website_popin.view_website_popin_page_stat_tree'}"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_website_popin_list" model="ir.ui.view">
+        <field name="name">website.popin.list</field>
+        <field name="model">website.popin</field>
+        <field name="arch" type="xml">
+            <list string="Website Popins">
+                <field name="name"/>
+                <field name="type"/>
+                <field name="trigger_type"/>
+                <field name="view_count"/>
+                <field name="click_count"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_website_popin" model="ir.actions.act_window">
+        <field name="name">Popins &amp; Banners</field>
+        <field name="res_model">website.popin</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_website_popin"
+              parent="website.menu_website_global_configuration"
+              action="action_website_popin"
+              sequence="20"/>
+
+</odoo>

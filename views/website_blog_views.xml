@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_blog_post_form_inherit_popin" model="ir.ui.view">
+        <field name="name">blog.post.form.inherit.popin</field>
+        <field name="model">blog.post</field>
+        <field name="inherit_id" ref="website_blog.view_blog_post_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='seo']" position="after">
+                <page string="Popins" name="popins">
+                    <group>
+                        <field name="popin_ids" widget="many2many_tags" context="{'default_type': 'modal'}"/>
+                    </group>
+                    <p class="text-muted">
+                        Select popins to display specifically on this blog post.
+                    </p>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
