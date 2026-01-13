@@ -21,6 +21,7 @@
             'website_popin/static/src/js/website_popin.js',
         ],
     },
+    'demo': [],
     'installable': True,
     'application': True,
     'license': 'LGPL-3',
