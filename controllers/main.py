@@ -5,7 +5,7 @@ import werkzeug
 
 class WebsitePopinController(http.Controller):
 
-    @http.route('/website_popin/get_popins', type='json', auth="public", website=True)
+    @http.route('/website_popin/get_popins', type='jsonrpc', auth="public", website=True)
     def get_popins(self, url, **kwargs):
         """ Fetch matching popins for the current URL. """
         
@@ -106,7 +106,7 @@ class WebsitePopinController(http.Controller):
         
         return matching_popins
 
-    @http.route('/website_popin/track_view', type='json', auth="public", website=True)
+    @http.route('/website_popin/track_view', type='jsonrpc', auth="public", website=True)
     def track_view(self, popin_id, url=None):
         popin = request.env['website.popin'].browse(popin_id).exists()
         if popin:
