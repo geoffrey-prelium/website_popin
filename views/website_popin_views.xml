@@ -124,6 +124,7 @@
     <menuitem id="menu_website_popin"
               parent="website.menu_website_configuration"
               action="action_website_popin"
-              sequence="20"/>
+              sequence="20"
+              groups="website.group_website_designer"/>
 
 </odoo>
