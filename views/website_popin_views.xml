@@ -121,10 +121,17 @@
         <field name="view_mode">list,form</field>
     </record>
 
+    <!-- Root Menu for Popin & Shared Blocks under Configuration -->
+    <menuitem id="menu_website_popin_root"
+              name="Popins &amp; Blocks"
+              parent="website.menu_website_global_configuration"
+              sequence="45"
+              groups="website.group_website_designer"/>
+
     <menuitem id="menu_website_popin"
-              parent="website.menu_website_configuration"
+              parent="menu_website_popin_root"
               action="action_website_popin"
-              sequence="20"
+              sequence="10"
               groups="website.group_website_designer"/>
 
 </odoo>
