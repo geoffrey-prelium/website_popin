@@ -5,3 +5,5 @@ access_website_popin_link,website.popin.link,model_website_popin_link,base.group
 access_website_popin_link_public,website.popin.link public,model_website_popin_link,base.group_public,1,0,0,0
 access_website_popin_page_stat,website.popin.page.stat,model_website_popin_page_stat,base.group_user,1,1,1,1
 access_website_popin_page_stat_public,website.popin.page.stat public,model_website_popin_page_stat,base.group_public,1,0,0,0
+access_website_shared_block,website.shared.block,model_website_shared_block,base.group_user,1,1,1,1
+access_website_shared_block_public,website.shared.block public,model_website_shared_block,base.group_public,1,0,0,0

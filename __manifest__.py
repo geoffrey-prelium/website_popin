@@ -16,10 +16,13 @@
         'security/ir.model.access.csv',
         'views/website_popin_views.xml',
         'views/website_blog_views.xml',
+        'views/shared_block_views.xml',
+        'views/snippets.xml',
     ],
     'assets': {
         'web.assets_frontend': [
             'website_popin/static/src/js/website_popin.js',
+            'website_popin/static/src/js/shared_block.js',
         ],
     },
     'demo': [],

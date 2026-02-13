@@ -159,3 +159,15 @@ class WebsitePopinController(http.Controller):
                      stat.click_count += 1
         
         return werkzeug.utils.redirect(url or '/')
+
+    @http.route('/website_popin/get_shared_content', type='jsonrpc', auth="public", website=True)
+    def get_shared_content(self, block_id):
+        block = request.env['website.shared.block'].browse(block_id).exists()
+        if block and block.is_published:
+            return block.content
+        return ""
+
+    @http.route('/website_popin/get_shared_blocks_list', type='jsonrpc', auth="user", website=True)
+    def get_shared_blocks_list(self):
+        # Only for logged in users (editors)
+        return request.env['website.shared.block'].search_read([('active', '=', True)], ['id', 'name'])

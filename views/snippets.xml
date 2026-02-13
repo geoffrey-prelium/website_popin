@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Snippet Definition -->
+    <template id="s_shared_block" name="Shared Block">
+        <div class="s_shared_block oe_structure" data-block-id="0">
+            <div class="alert alert-info text-center">
+                Shared Block: Select a block in options
+            </div>
+        </div>
+    </template>
+
+    <!-- Register Snippet in Website Editor -->
+    <template id="snippets" inherit_id="website.snippets" name="Shared Block Snippets">
+        <xpath expr="//div[@id='snippet_structure']//div[@class='o_panel_body']" position="inside">
+            <t t-snippet="website_popin.s_shared_block" t-thumbnail="/website/static/src/img/snippets_thumbs/s_text_block.svg"/>
+        </xpath>
+    </template>
+
+    <!-- Snippet Options -->
+    <template id="s_shared_block_options" inherit_id="website.snippet_options">
+        <xpath expr="." position="inside">
+            <div data-js="SharedBlockOption" data-selector=".s_shared_block">
+                <we-select string="Block" data-attribute-name="blockId">
+                    <we-button data-select-data-attribute="0">Select a Block...</we-button>
+                    <!-- Options will be loaded via JS -->
+                </we-select>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

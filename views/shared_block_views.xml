@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_website_shared_block_form" model="ir.ui.view">
+        <field name="name">website.shared.block.form</field>
+        <field name="model">website.shared.block</field>
+        <field name="arch" type="xml">
+            <form string="Shared Block">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <field name="is_published" widget="website_redirect_button"/>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="e.g. Footer Promo"/></h1>
+                    </div>
+                    <group>
+                        <field name="active" widget="boolean_toggle"/>
+                    </group>
+                    <notebook>
+                        <page string="Content" name="content">
+                            <field name="content" widget="code" options="{'mode': 'xml'}"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_website_shared_block_list" model="ir.ui.view">
+        <field name="name">website.shared.block.list</field>
+        <field name="model">website.shared.block</field>
+        <field name="arch" type="xml">
+            <list string="Shared Blocks">
+                <field name="name"/>
+                <field name="active" widget="boolean_toggle"/>
+                <field name="is_published" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_website_shared_block" model="ir.actions.act_window">
+        <field name="name">Shared Blocks</field>
+        <field name="res_model">website.shared.block</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_website_shared_block"
+              parent="website.menu_website_global_configuration"
+              action="action_website_shared_block"
+              sequence="25"/>
+
+</odoo>
