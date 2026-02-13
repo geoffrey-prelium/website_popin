@@ -122,7 +122,7 @@
     </record>
 
     <menuitem id="menu_website_popin"
-              parent="website.menu_website_global_configuration"
+              parent="website.menu_website_configuration"
               action="action_website_popin"
               sequence="20"/>
 

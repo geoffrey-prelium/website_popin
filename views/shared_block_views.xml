@@ -46,7 +46,7 @@
     </record>
 
     <menuitem id="menu_website_shared_block"
-              parent="website.menu_website_global_configuration"
+              parent="website.menu_website_configuration"
               action="action_website_shared_block"
               sequence="25"/>
 
