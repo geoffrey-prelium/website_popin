@@ -23,15 +23,13 @@
     </template>
 
     <!-- Snippet Options -->
-    <template id="s_shared_block_options" inherit_id="website.snippet_options">
-        <xpath expr="." position="inside">
-            <div data-js="SharedBlockOption" data-selector=".s_shared_block">
-                <we-select string="Block" data-attribute-name="blockId">
-                    <we-button data-select-data-attribute="0">Select a Block...</we-button>
-                    <!-- Options will be loaded via JS -->
-                </we-select>
-            </div>
-        </xpath>
+    <template id="s_shared_block_options">
+        <div data-js="SharedBlockOption" data-selector=".s_shared_block">
+            <we-select string="Block" data-attribute-name="blockId">
+                <we-button data-select-data-attribute="0">Select a Block...</we-button>
+                <!-- Options will be loaded via JS -->
+            </we-select>
+        </div>
     </template>
 
 </odoo>
