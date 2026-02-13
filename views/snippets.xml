@@ -12,7 +12,7 @@
 
     <!-- Register Snippet in Website Editor -->
     <template id="snippets" inherit_id="website.snippets" name="Shared Block Snippets">
-        <xpath expr="//t[@t-call='website.snippet_structure']" position="after">
+        <xpath expr="." position="inside">
             <div class="o_panel">
                 <div class="o_panel_header">Shared Blocks</div>
                 <div class="o_panel_body">
