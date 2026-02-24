@@ -13,7 +13,7 @@
     <!-- Register Snippet in Website Editor -->
     <template id="snippets" inherit_id="website.snippets" name="Shared Block Snippets">
         <xpath expr="//snippets[@id='snippet_structure']" position="inside">
-            <t t-snippet="website_popin.s_shared_block" string="Shared Block" group="custom" t-thumbnail="/website/static/src/img/snippets_thumbs/s_text_block.svg"/>
+            <t t-snippet="website_popin.s_shared_block" string="Shared Block" group="content" t-thumbnail="/website/static/src/img/snippets_thumbs/s_text_block.svg"/>
         </xpath>
     </template>
 
