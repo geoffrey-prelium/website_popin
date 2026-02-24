@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mode Opératoire - Module Website Popin & Shared Blocks</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9fc;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            border-bottom: 1px solid #bdc3c7;
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+
+        .step {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #3498db;
+        }
+
+        .important {
+            background-color: #ffeaa7;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 5px solid #fdcb6e;
+        }
+
+        code,
+        .code-block {
+            background-color: #f1f2f6;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+            color: #e84118;
+        }
+
+        ul,
+        ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #dfe6e9;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f1f2f6;
+        }
+
+        .toc {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .toc li {
+            margin-bottom: 10px;
+        }
+
+        .toc a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Manuel Utilisateur : Website Popin & Shared Blocks</h1>
+
+    <div class="important">
+        <strong>Prérequis :</strong> Pour avoir accès aux menus de configuration de ce module, vous devez disposer des
+        droits d'accès <strong>"Éditeur de site web" (Website Designer)</strong> ou Administrateur.
+    </div>
+
+    <div class="toc">
+        <h2>Sommaire</h2>
+        <ul>
+            <li><a href="#intro">1. Introduction au module</a></li>
+            <li><a href="#popins">2. Créer et configurer une Popin (Fenêtre contextuelle)</a></li>
+            <li><a href="#targeting">3. Filtrage et Cible (Targeting)</a></li>
+            <li><a href="#analytics">4. Statistiques et Analytics</a></li>
+            <li><a href="#shared-blocks">5. Les Blocs Partagés (Shared Blocks) et le Constructeur visuel</a></li>
+        </ul>
+    </div>
+
+    <h2 id="intro">1. Introduction au module</h2>
+    <div class="step">
+        <p>Le module <strong>Website Popin & Banner Builder</strong> d'Odoo vous permet de créer des outils marketing
+            directement intégrés à votre site web de deux façons :</p>
+        <ul>
+            <li><strong>Des Popins (Modals) ou Bannières :</strong> Des fenêtres s'affichant par-dessus le contenu pour
+                inciter vos visiteurs à l'action (promotions, newsletter, sortie de page).</li>
+            <li><strong>Des Shared Blocks (Blocs partagés) :</strong> Des morceaux de HTML/Contenu (ex: un bloc d'appel
+                à l'action, un footer spécial) que vous pouvez configurer une seule fois dans l'interface et déployer
+                sur plusieurs pages web via l'éditeur "Glisser-Déposer". En modifiant le code source de ce bloc partagé,
+                il se mettra à jour automatiquement sur toutes les pages web où il est affiché.</li>
+        </ul>
+    </div>
+
+    <h2 id="popins">2. Créer et configurer une Popin</h2>
+    <div class="step">
+        <h3>Accès au menu</h3>
+        <p>Allez dans l'application <strong>Site Web (Website)</strong> &gt; <strong>Configuration</strong> &gt;
+            <strong>Popins & Blocks</strong> &gt; <strong>Popins & Banners</strong>.</p>
+
+        <h3>Processus de création</h3>
+        <ol>
+            <li>Cliquez sur le bouton <strong>Nouveau</strong>.</li>
+            <li><strong>Nom :</strong> Donnez un titre interne à votre Popin (ex: <i>Promo Hiver 2026</i>).</li>
+            <li><strong>Publié sur le site web :</strong> Pensez à cliquer sur l'icône rouge en haut à droite pour
+                passer le statut de <i>Non Publié</i> à <i>Publié</i> lorsque votre configuration sera terminée.
+                L'interrupteur "Actif" doit également être coché.</li>
+        </ol>
+
+        <h3>Configuration Générale</h3>
+        <table>
+            <tr>
+                <th>Champ</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><strong>Type</strong></td>
+                <td>Le format de votre affichage (Bannière fixe en haut/bas, Modal classique au centre, plein écran...).
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Campagne UTM</strong></td>
+                <td>(Optionnel) Liez votre popin à une campagne d'acquisition existante pour suivre les statistiques du
+                    trafic.</td>
+            </tr>
+            <tr>
+                <td><strong>Sites Web</strong></td>
+                <td>Cochez les sites sur lesquels la popin a le droit de s'afficher (idéal en cas de multi-sites
+                    B2B/B2C).</td>
+            </tr>
+            <tr>
+                <td><strong>Fréquence (Frequency)</strong></td>
+                <td>Contrôle le harcèlement du visiteur :
+                    <ul>
+                        <li><i>Continuellement :</i> Affiche la popin à chaque fois que la règle est remplie.</li>
+                        <li><i>Jours (days) :</i> Permet de définir combien de jours doivent s'écouler avant de
+                            remontrer la popin au même utilisateur.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Type de visiteur</strong></td>
+                <td>Sélectionnez si la popin s'affiche pour "Tout le monde", uniquement pour les personnes non
+                    connectées (invités/anonymes) ou uniquement pour vos clients connectés.</td>
+            </tr>
+        </table>
+
+        <h3>Onglet "Contenu" (Content)</h3>
+        <p>Cet onglet contient un éditeur de code. Vous devez y insérer le code <strong>HTML</strong> strict qui
+            composera le contenu visuel brut de votre Popin (titre, image, lien vers un produit, formulaire de contact).
+        </p>
+    </div>
+
+    <h2 id="targeting">3. Filtrage et Cible (Onglets Targeting & Triggers)</h2>
+    <div class="step">
+        <p>Les popins ne s'affichent pas partout au hasard. Vous devez configurer quelles pages surveiller (Targeting)
+            et quelle action déclenche l'affichage (Triggers).</p>
+
+        <h3>Onglet "Targeting" (Où l'afficher ?)</h3>
+        <ul>
+            <li><strong>Pages :</strong> Sélectionnez manuellement les pages spécifiques créées via le constructeur Odoo
+                (ex: <code>/contactus</code>).</li>
+            <li><strong>Articles de blog :</strong> Ciblez un article de blog promotionnel spécifique.</li>
+            <li><strong>Motifs d'URL (URL Patterns) :</strong> Permet d'afficher la Popin sur des groupes de pages de
+                façon dynamique. Exemple: écrivez <code>/shop/*</code> pour que la popin s'affiche sur la boutique et
+                sur toutes les fiches produits !</li>
+        </ul>
+
+        <h3>Onglet "Triggers" (Quand l'afficher ?)</h3>
+        <table>
+            <tr>
+                <th>Type de déclenchement</th>
+                <th>Configuration du comportement</th>
+            </tr>
+            <tr>
+                <td><strong>Délai (Delay)</strong></td>
+                <td>S'affiche X secondes après l'arrivée sur la page (renseignez le délai).</td>
+            </tr>
+            <tr>
+                <td><strong>Défilement (Scroll)</strong></td>
+                <td>S'affiche quand le visiteur a descendu la page jusqu'à un certain pourcentage (ex: affiche si
+                    `trigger_scroll = 50%`).</td>
+            </tr>
+            <tr>
+                <td><strong>Clic (Click)</strong></td>
+                <td>Ne s'affiche QUE si l'utilisateur clique sur un module précis de la page (renseignez le
+                    <code>sélecteur CSS</code> du bouton).</td>
+            </tr>
+            <tr>
+                <td><strong>Intention de sortie</strong></td>
+                <td>S'affiche immédiatement quand la souris du visiteur quitte la zone de la page pour aller vers la
+                    croix de fermeture du navigateur.</td>
+            </tr>
+        </table>
+    </div>
+
+    <h2 id="analytics">4. Statistiques et Analytics</h2>
+    <div class="step">
+        <p>Dans l'interface de la Popin, en haut à droite, des "Smart Buttons" comptent automatiquement le nombre
+            d'affichages (<strong>Views</strong>) et de clics reçus (<strong>Clicks</strong>).</p>
+
+        <p>L'onglet <strong>Analytics</strong> détaille ces données :</p>
+        <ul>
+            <li><strong>Links Performance (Liens) :</strong> Si vous avez mis un bouton ou un lien `&lt;a&gt;` dans le
+                HTML de la popin, Odoo tracera combien de clics chaque URL du corps de texte a reçu individuellement.
+            </li>
+            <li><strong>Page Performance (Pages) :</strong> Indique sur quelle page précisément la Popin a eu le plus de
+                succès (utile si vous utilisez les filtres globaux de type <code>/shop/*</code>).</li>
+        </ul>
+    </div>
+
+    <h2 id="shared-blocks">5. Les Blocs Partagés (Shared Blocks)</h2>
+    <div class="step">
+        <p>Les Blocs Partagés vous permettent d'injecter facilement un morceau de HTML sur le site grâce à l'éditeur
+            "Glisser/Déposer" standard d'Odoo, sans avoir à copier/coller le code partout.</p>
+
+        <h3>Étape A : Créer la ressource Bloc Partagé dans le Backend</h3>
+        <ol>
+            <li>Dans Site Web &gt; Configuration &gt; Popins & Blocks, cliquez sur <strong>Shared Blocks</strong>.</li>
+            <li>Créez un nouveau bloc (ex: <i>"Bandeau Footer Réseaux Sociaux"</i>).</li>
+            <li>Basculez-le en mode <strong>Publié</strong> en haut à droite (indispensable pour le voir en ligne).</li>
+            <li>Dans l'onglet <strong>Content</strong>, collez le code HTML du bloc.</li>
+        </ol>
+
+        <h3>Étape B : Intégrer le Bloc Partagé visuellement sur le site !</h3>
+        <ol>
+            <li>Rendez-vous sur n'importe quelle page de votre site web (coté Front-End).</li>
+            <li>Cliquez sur <strong>Éditer (Edit)</strong> en haut à droite pour ouvrir le constructeur de site.</li>
+            <li>Dans la palette des blocs à droite, cherchez dans la section <i>Shared Blocks</i>.</li>
+            <li>Glissez le bloc <strong>"Shared Block"</strong> sur la page. Par défaut, un texte bleu informatif
+                apparaît.</li>
+            <li><strong>Sélectionnez le bloc que vous venez de glisser</strong> en cliquant dessus.</li>
+            <li>Regardez le menu latéral de droite (les "options" du bloc). Vous y verrez un menu déroulant intitulé
+                "Select a Block..." (Choix du bloc).</li>
+            <li>Sélectionnez le nom du bloc partagé créé à l'étape A (ex: "Bandeau Footer..."). <strong>Magie : Le code
+                    HTML injecté en Back-end se charge directement dans l'interface visuelle !</strong></li>
+            <li>Sauvegardez la page de votre site web.</li>
+        </ol>
+
+        <div class="important">
+            💡 <strong>Astuce :</strong> Placez ce snippet Shared Block sur 10 pages de votre site et choisissez le même
+            modèle. Si demain vous souhaitez changer une couleur ou une url dans ce bloc, modifiez simplement son code
+            HTML via Site web > Configuration > Shared Blocks : il se mettra à jour instantanément sur vos 10 pages web
+            !
+        </div>
+    </div>
+
+    <div
+        style="margin-top: 50px; text-align: center; color: #7f8c8d; font-size: 0.9em; border-top: 1px solid #bdc3c7; padding-top: 20px;">
+        <p>© 2026 - Guide rédigé pour les utilisateurs du module Prelium: Website Popin & Banner Builder</p>
+    </div>
+
+</body>
+
+</html>
