@@ -1,6 +1,6 @@
 {
     'name': 'Website Popin & Banner Builder',
-    'version': '1.6',
+    'version': '1.7',
     'author': 'Prelium',
     'category': 'Website/Marketing',
     'summary': 'Create and manage marketing popins, modals, and banners on your website.',
