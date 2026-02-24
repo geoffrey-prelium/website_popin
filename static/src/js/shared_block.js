@@ -12,7 +12,12 @@ publicWidget.registry.SharedBlock = publicWidget.Widget.extend({
         var self = this;
         var blockId = this.$el.data('block-id');
 
-        if (blockId && blockId !== 0) {
+        // Temporary fallback for Odoo 19 demo: Automatically load block ID 1 if not set
+        if (!blockId || blockId === 0) {
+            blockId = 1;
+        }
+
+        if (blockId) {
             this._fetchContent(blockId);
         }
         return this._super.apply(this, arguments);
