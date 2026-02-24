@@ -12,13 +12,8 @@
 
     <!-- Register Snippet in Website Editor -->
     <template id="snippets" inherit_id="website.snippets" name="Shared Block Snippets">
-        <xpath expr="." position="inside">
-            <div class="o_panel">
-                <div class="o_panel_header">Shared Blocks</div>
-                <div class="o_panel_body">
-                    <t t-snippet="website_popin.s_shared_block" t-thumbnail="/website/static/src/img/snippets_thumbs/s_text_block.svg"/>
-                </div>
-            </div>
+        <xpath expr="//snippets[@id='snippet_structure']" position="inside">
+            <t t-snippet="website_popin.s_shared_block" string="Shared Block" group="custom" t-thumbnail="/website/static/src/img/snippets_thumbs/s_text_block.svg"/>
         </xpath>
     </template>
 
