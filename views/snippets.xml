@@ -3,17 +3,19 @@
 
     <!-- Snippet Definition -->
     <template id="s_shared_block" name="Shared Block">
-        <div class="s_shared_block oe_structure" data-block-id="0">
-            <div class="alert alert-info text-center">
-                Shared Block: Select a block in options
+        <section class="s_shared_block pt32 pb32" data-snippet="website_popin.s_shared_block" data-name="Shared Block">
+            <div class="container">
+                <div class="alert alert-info text-center mb-0">
+                    Shared Block: Select a block in options
+                </div>
             </div>
-        </div>
+        </section>
     </template>
 
     <!-- Register Snippet in Website Editor -->
     <template id="snippets" inherit_id="website.snippets" name="Shared Block Snippets">
-        <xpath expr="//snippets[@id='snippet_content']" position="inside">
-            <t t-snippet="website_popin.s_shared_block" string="Shared Block" t-thumbnail="/website/static/src/img/snippets_thumbs/s_text_block.svg"/>
+        <xpath expr="//snippets[@id='snippet_structure']" position="inside">
+            <t t-snippet="website_popin.s_shared_block" string="Shared Block" group="content" t-thumbnail="/website/static/src/img/snippets_thumbs/s_text_block.svg"/>
         </xpath>
     </template>
 
